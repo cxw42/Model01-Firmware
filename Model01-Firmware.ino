@@ -448,10 +448,10 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // LEDControl provides support for other LED modes
   LEDControl,
 
+#if 0
   // We start with the LED effect that turns off all the LEDs.
   LEDOff,
 
-#if 0
   // The rainbow effect changes the color of all of the keyboard's keys at the same time
   // running through all the colors of the rainbow.
   LEDRainbowEffect,
@@ -466,7 +466,10 @@ KALEIDOSCOPE_INIT_PLUGINS(
 #endif
 
   // These static effects turn your keyboard's LEDs a variety of colors
-  solidRed, solidOrange, solidYellow, solidGreen, solidBlue, solidIndigo, solidViolet,
+  solidRed,
+#if 0
+  solidOrange, solidYellow, solidGreen, solidBlue, solidIndigo, solidViolet,
+#endif
 
 #if 0
   // The breathe effect slowly pulses all of the LEDs on your keyboard
