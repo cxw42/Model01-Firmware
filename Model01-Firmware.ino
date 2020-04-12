@@ -177,8 +177,8 @@ KEYMAPS(
    // my Model01 itself!
    M(MACRO_ANY),
 
-   //Key_LeftControl,
-   Key_CapsLock,  // Because I have Ctrl and Caps switched in the KeycodeMap
+   Key_LeftControl,
+   //Key_CapsLock,  // Because I have Ctrl and Caps switched in the KeycodeMap
 
    Key_Backspace, Key_LeftGui, Key_LeftShift,
    ShiftToLayer(FUNCTION),
