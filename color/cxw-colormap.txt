@@ -1,5 +1,8 @@
 colormap.map
 
+# Generic version posted as a gist at
+# https://gist.github.com/cxw42/67e870bd2f67f9a525b1e53a8b244af4
+
 # Layout:
 #
 # Left side:
@@ -8,7 +11,7 @@ colormap.map
 #
 # Right side:
 #   Pad, then across the thumb L-R, then, starting from `any`, down column 1,
-#   up column 2, &c., ending down column 7 at `\`
+#   up column 2, &c., ending down column 7 at `-`
 
 #######################################
 # Primary layer
@@ -25,7 +28,7 @@ colormap.map
 ## col 4: 3 e d c
 1 1 1 1
 
-## col 5: c f r 4
+## col 5: v f r 4
 1 1 1 1
 
 ## col 6: 5 t g b
@@ -82,7 +85,7 @@ colormap.map
 ## col 4: 3 e d c
 1 1 1 1
 
-## col 5: c f r 4
+## col 5: v f r 4
 1 1 1 1
 
 ## col 6: 5 t g b
@@ -133,16 +136,16 @@ colormap.map
 1 1 1 1
 
 ## col 2: 1 q a z
-1 1 6 1
+1 5 6 7
 
 ## col 3: x s w 2
-1 8 4 1
+8 0 4 1
 
 ## col 4: 3 e d c
-1 1 2 1
+1 3 2 9
 
-## col 5: c f r 4
-1 1 1 1
+## col 5: v f r 4
+10 6 2 1
 
 ## col 6: 5 t g b
 1 1 1 1
@@ -151,7 +154,7 @@ colormap.map
 1 1 1
 
 ## Left thumb: ctrl bksp cmd shift
-1 1 1 1
+1 2 1 1
 
 ## Left pad
 1 # DEBUG 13
@@ -160,19 +163,19 @@ colormap.map
 1 # DEBUG 14
 
 ## Right thumb: shift alt space ctrl
-1 1 1 1
+1 1 2 1
 
 ## Right, col 1: any enter butterfly
-1 1 1
+6 10 1
 
 ## col 2: n h y 6
-1 6 1 1
+0 6 2 1
 
 ## col 3: 7 u j m
-1 1 8 1
+1 1 8 8
 
 ## col 4: , k i 8
-1 4 1 1
+4 4 1 1
 
 ## col 5: 9 o l .
 1 1 2 1
@@ -181,5 +184,12 @@ colormap.map
 1 1 1 1
 
 ## col 7: num = ' -
-1 1 1 1
+1 1 10 1
 
+# Copyright (c) 2020 Christopher White (https://github.com/cxw42).
+# Copying and distribution of this file, with or without modification, are
+# permitted in any medium without royalty provided the copyright notice and
+# this notice are preserved. This file is offered as-is, without any warranty.
+# SPDX-License-Identifier: FSFAP
+
+# vi: set ft=perl: #   # Just for syntax-highlighting the comments
