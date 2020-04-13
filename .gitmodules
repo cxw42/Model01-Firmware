@@ -1,3 +1,6 @@
 [submodule "Model01-sketch"]
 	path = Model01-sketch
 	url = https://github.com/algernon/Model01-sketch.git
+[submodule "Kaleidoscope-CapsLock"]
+	path = Kaleidoscope-CapsLock
+	url = https://github.com/donfeduardo/Kaleidoscope-CapsLock.git
