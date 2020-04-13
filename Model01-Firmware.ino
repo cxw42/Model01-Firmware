@@ -2,11 +2,35 @@
 // Copyright 2016 Keyboardio, inc. <jesse@keyboard.io>
 // See "LICENSE" for license details
 
+//===========================================================================
+// This block is copyright (c) Pádraig Brady 2008-2016, from
+// http://www.pixelbeat.org/programming/gcc/static_assert.html .
+// Copying and distribution of this block, with or without modification,
+// are permitted in any medium without royalty provided the copyright notice
+// and this notice are preserved. This file is offered as-is, without any warranty.
+#define ASSERT_CONCAT_(a, b) a##b
+#define ASSERT_CONCAT(a, b) ASSERT_CONCAT_(a, b)
+/* These can't be used after statements in c89. */
+#ifdef __COUNTER__
+  #define STATIC_ASSERT(e,m) \
+    ;enum { ASSERT_CONCAT(static_assert_, __COUNTER__) = 1/(int)(!!(e)) }
+#else
+  /* This can't be used twice on the same line so ensure if using in headers
+   * that the headers are not included twice (by wrapping in #ifndef...#endif)
+   * Note it doesn't cause an issue when used on same line of separate modules
+   * compiled with gcc -combine -fwhole-program.  */
+  #define STATIC_ASSERT(e,m) \
+    ;enum { ASSERT_CONCAT(assert_line_, __LINE__) = 1/(int)(!!(e)) }
+#endif
+//===========================================================================
+
 #ifndef BUILD_INFORMATION
 #define BUILD_INFORMATION "locally built"
 #endif
 
+/* How many layers we save room for in the EEPROM */
 
+#define LAYER_SPACE (5)
 /**
  * These #include directives pull in the Kaleidoscope firmware core,
  * as well as the Kaleidoscope plugins we use in the Model 01's firmware
@@ -68,6 +92,8 @@
 
 // Support for host power management (suspend & wakeup)
 #include "Kaleidoscope-HostPowerManagement.h"
+
+#include "Kaleidoscope-IdleLEDs.h"
 
 // Support for magic combos (key chords that trigger an action)
 #include "Kaleidoscope-MagicCombo.h"
@@ -142,8 +168,9 @@ enum { MACRO_VERSION_INFO,
   *
   */
 
-enum { PRIMARY, NUMPAD, FUNCTION }; // layers
-
+enum { PRIMARY, NUMPAD, FUNCTION,
+        NUM_LAYERS }; // layers
+STATIC_ASSERT(NUM_LAYERS <= LAYER_SPACE, "Increase LAYER_SPACE to save room for that many layers");
 
 /**
   * To change your keyboard's layout from QWERTY to DVORAK or COLEMAK, comment out the line
@@ -189,9 +216,7 @@ KEYMAPS(
    Key_Backspace, Key_LeftGui, Key_LeftShift,
    ShiftToLayer(FUNCTION),
 
-   Key_Escape,
-
-   Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
+   Key_Escape,    Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
    Key_Enter,     Key_Y, Key_U, Key_I,     Key_O,         Key_P,         Key_Equals,
                   Key_H, Key_J, Key_K,     Key_L,         Key_Semicolon, Key_Quote,
    Key_RightAlt,  Key_N, Key_M, Key_Comma, Key_Period,    Key_Slash,     Key_Minus,
@@ -467,10 +492,13 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // LEDControl provides support for other LED modes
   LEDControl,
 
-#if 0
+  // Turn off the LEDs if no keys are pressed for a while
+  IdleLEDs,
+
   // We start with the LED effect that turns off all the LEDs.
   LEDOff,
 
+#if 0
   // The rainbow effect changes the color of all of the keyboard's keys at the same time
   // running through all the colors of the rainbow.
   LEDRainbowEffect,
@@ -482,15 +510,11 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // The chase effect follows the adventure of a blue pixel which chases a red pixel across
   // your keyboard. Spoiler: the blue pixel never catches the red pixel
   LEDChaseEffect,
-#endif
 
   // These static effects turn your keyboard's LEDs a variety of colors
   solidRed,
-#if 0
   solidOrange, solidYellow, solidGreen, solidBlue, solidIndigo, solidViolet,
-#endif
 
-#if 0
   // The breathe effect slowly pulses all of the LEDs on your keyboard
   LEDBreatheEffect,
 
@@ -509,9 +533,13 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // The Colormap effect makes it possible to set up per-layer colormaps
   ColormapEffect,
 
+#if 0
+  // Handle this in ColormapEffect instead
+
   // The numpad plugin is responsible for lighting up the 'numpad' mode
   // with a custom LED effect
   NumPad,
+#endif
 
   // The macros plugin adds support for macros
   Macros,
@@ -543,42 +571,56 @@ void setup() {
   // First, call Kaleidoscope's internal setup function
   Kaleidoscope.setup();
 
+#if 0
   // While we hope to improve this in the future, the NumPad plugin
   // needs to be explicitly told which keymap layer is your numpad layer
   NumPad.numPadLayer = NUMPAD;
 
+  NumPad.color = CRGB(255,255,255);
+  //NumPad.lock_hue = 85; // green
+#endif
+
   // We configure the AlphaSquare effect to use RED letters
   AlphaSquare.color = CRGB(255, 0, 0);
 
+#if 0
   // We set the brightness of the rainbow effects to 150 (on a scale of 0-255)
   // This draws more than 500mA, but looks much nicer than a dimmer effect
   LEDRainbowEffect.brightness(150);
   LEDRainbowWaveEffect.brightness(150);
+#endif
 
   // Set the action key the test mode should listen for to Left Fn
   HardwareTestMode.setActionKey(R3C6);
 
+#if 0
   // The LED Stalker mode has a few effects. The one we like is called
   // 'BlazingTrail'. For details on other options, see
   // https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/LED-Stalker.md
   StalkerEffect.variant = STALKER(BlazingTrail);
+#endif
 
   // We want to make sure that the firmware starts with LED effects off
   // This avoids over-taxing devices that don't have a lot of power to share
   // with USB devices
   LEDOff.activate();
 
+  // Timeout on idle: 3 min.
+  IdleLEDs.setIdleTimeoutSeconds(3*60);
+
   // To make the keymap editable without flashing new firmware, we store
   // additional layers in EEPROM. For now, we reserve space for five layers. If
   // one wants to use these layers, just set the default layer to one in EEPROM,
   // by using the `settings.defaultLayer` Focus command, or by using the
   // `keymap.onlyCustom` command to use EEPROM layers only.
-  EEPROMKeymap.setup(5);
+  EEPROMKeymap.setup(LAYER_SPACE);
 
   // We need to tell the Colormap plugin how many layers we want to have custom
-  // maps for. To make things simple, we set it to five layers, which is how
-  // many editable layers we have (see above).
-  ColormapEffect.max_layers(5);
+  // maps for.
+  // See https://community.keyboard.io/t/colormap-plugin-is-variant/1840/7 et seq.
+  // for more about setting colormaps.
+  ColormapEffect.max_layers(LAYER_SPACE);
+  ColormapEffect.activate();
 }
 
 /** loop is the second of the standard Arduino sketch functions.
