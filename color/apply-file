@@ -1,0 +1,27 @@
+#!/bin/bash
+# Modified from Model01-sketch/tools/colormap/apply by Gergely Nagy
+# (algernon),
+# https://github.com/algernon/Model01-sketch/blob/master/tools/colormap/apply ,
+# licensed GPL3.
+
+here="$(cd "$(dirname "$0")" &>/dev/null ; pwd)"
+
+if [[ $# -ne 1 ]]; then
+  echo "Usage: $0 <colormap filename>"
+  exit 1
+fi
+
+mapfile="$1"
+
+if [[ ! -r "$mapfile" ]]; then
+  echo "Cannot read specified file"
+  exit 1
+fi
+
+clean_command () {
+    sed -e "s,#.*,,"
+}
+
+focus="$here/focus"
+
+grep -v '^#' "$mapfile" | clean_command | DEVICE=/dev/ttyACM0 xargs "$focus"

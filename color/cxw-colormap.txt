@@ -1,0 +1,104 @@
+colormap.map
+
+# Layout:
+#
+# Left side:
+#   Starting from pgdn, up column 1, down column 2, &c., ending up column 7.
+#   Then across the thumb L-R, then the pad.
+#
+# Right side:
+#   Pad, then across the thumb L-R, then, starting from `any`, down column 1,
+#   up column 2, &c., ending down column 7 at `\`
+
+#######################################
+# Primary
+
+## Left main
+ 0  1  2  3  4  5  6  # TEST
+ 7  8  9 10 11 12 13
+14 15  0  1  2  3
+ 4  5  6  7  8  9 10
+#15 15 15 15 15 15 15
+#15 15 15 15 15 15 15
+#15 15 15 15 15 15
+#15 15 15 15 15 15 15
+
+## Left thumb
+11 12 13 14 # TEST
+
+## Left pad
+15  # TEST
+
+## Right main
+ 0  1  2  3  4  5  6  # TEST
+ 7  8  9 10 11 12 13
+   14 15  0  1  2  3
+ 4  5  6  7  8  9 10
+#15 15 15 15 15 15 15
+#15 15 15 15 15 15 15
+#   15 15 15 15 15 15
+#15 15 15 15 15 15 15
+
+## Left thumb
+11 12 13 14 # TEST
+#15 15 15 15
+
+## Left pad
+15  # TEST
+#15
+
+#######################################
+# Numpad
+
+## Left main
+15 15 15 15 15 15 15
+15 15 15 15 15 15 15
+15 15 15 15 15 15
+15 15 15 15 15 15 15
+
+## Left thumb
+15 15 15 15
+
+## Left pad
+15
+
+## Right main
+15 15 15 15 15 15 15
+15 15 15 15 15 15  5  # Just so you can see something's happening
+   15 15 15 15 15 15
+15 15 15 15 15 15 15
+
+## Left thumb
+15 15 15 15
+
+## Left pad
+15
+
+#######################################
+# Function
+
+## Left main
+ 0  1  2  3  4  5  6  # TEST
+ 7  8  9 10 11 12 13
+14 15 15 15 15 15
+15 15 15 15 15 15 15
+
+## Left thumb
+15 15 15 15
+
+## Left pad
+15
+
+## Right main
+15 15 15 15 15 15 15
+15 15 15 15 15 15 15
+   15 15 15 15 15 15
+15 15 15 15 15 15 15
+
+## Left thumb
+15 15 15 15
+
+## Left pad
+15
+
+# vi: set ft=perl: #
