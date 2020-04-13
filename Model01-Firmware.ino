@@ -101,6 +101,9 @@
 // Support for USB quirks, like changing the key state report protocol
 #include "Kaleidoscope-USB-Quirks.h"
 
+// Show caps lock state
+#include "Kaleidoscope-CapsLock/src/Kaleidoscope-CapsLock.h"
+
 /** This 'enum' is a list of all the macros used by the Model 01's firmware
   * The names aren't particularly important. What is important is that each
   * is unique.
