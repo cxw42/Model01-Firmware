@@ -11,94 +11,175 @@ colormap.map
 #   up column 2, &c., ending down column 7 at `\`
 
 #######################################
-# Primary
+# Primary layer
 
-## Left main
- 0  1  2  3  4  5  6  # TEST
- 7  8  9 10 11 12 13
-14 15  0  1  2  3
- 4  5  6  7  8  9 10
-#15 15 15 15 15 15 15
-#15 15 15 15 15 15 15
-#15 15 15 15 15 15
-#15 15 15 15 15 15 15
+## Left, col 1: pgdn pgup ` prog
+1 1 1 1
 
-## Left thumb
-11 12 13 14 # TEST
+## col 2: 1 q a z
+1 1 1 1
 
-## Left pad
-15  # TEST
+## col 3: x s w 2
+1 1 1 1
 
-## Right main
- 0  1  2  3  4  5  6  # TEST
- 7  8  9 10 11 12 13
-   14 15  0  1  2  3
- 4  5  6  7  8  9 10
-#15 15 15 15 15 15 15
-#15 15 15 15 15 15 15
-#   15 15 15 15 15 15
-#15 15 15 15 15 15 15
+## col 4: 3 e d c
+1 1 1 1
 
-## Left thumb
-11 12 13 14 # TEST
-#15 15 15 15
+## col 5: c f r 4
+1 1 1 1
+
+## col 6: 5 t g b
+1 1 1 1
+
+## col 7: esc tab led
+1 1 1
+
+## Left thumb: ctrl bksp cmd shift
+1 1 1 1
 
 ## Left pad
-15  # TEST
-#15
+1
+
+## Right pad
+1
+
+## Right thumb: shift alt space ctrl
+1 1 1 1
+
+## Right, col 1: any enter butterfly
+1 1 1
+
+## col 2: n h y 6
+1 1 1 1
+
+## col 3: 7 u j m
+1 1 1 1
+
+## col 4: , k i 8
+1 1 1 1
+
+## col 5: 9 o l .
+1 1 1 1
+
+## col 6: / ; p 0
+1 1 1 1
+
+## col 7: num = ' -
+1 1 1 1
 
 #######################################
 # Numpad
 
-## Left main
-15 15 15 15 15 15 15
-15 15 15 15 15 15 15
-15 15 15 15 15 15
-15 15 15 15 15 15 15
+## Left, col 1: pgdn pgup ` prog
+1 1 1 1
 
-## Left thumb
-15 15 15 15
+## col 2: 1 q a z
+1 1 1 1
+
+## col 3: x s w 2
+1 1 1 1
+
+## col 4: 3 e d c
+1 1 1 1
+
+## col 5: c f r 4
+1 1 1 1
+
+## col 6: 5 t g b
+1 1 1 1
+
+## col 7: esc tab led
+1 1 1
+
+## Left thumb: ctrl bksp cmd shift
+1 1 1 1
 
 ## Left pad
-15
+1 # DEBUG 11
 
-## Right main
-15 15 15 15 15 15 15
-15 15 15 15 15 15  5  # Just so you can see something's happening
-   15 15 15 15 15 15
-15 15 15 15 15 15 15
+## Right pad
+1 # DEBUG 12
 
-## Left thumb
-15 15 15 15
+## Right thumb: shift alt space ctrl
+1 1 1 1
 
-## Left pad
-15
+## Right, col 1: any enter butterfly
+1 1 1
+
+## col 2: n h y 6
+1 1 1 1
+
+## col 3: 7 u j m
+4 4 4 4
+
+## col 4: , k i 8
+4 4 4 4
+
+## col 5: 9 o l .
+4 4 4 4
+
+## col 6: / ; p 0
+## Highlight = (white) / + (green) / - (red)
+4 10 6 2
+
+## col 7: num = ' -
+## Highlight Num and Enter
+4 1 1 10
 
 #######################################
 # Function
 
-## Left main
- 0  1  2  3  4  5  6  # TEST
- 7  8  9 10 11 12 13
-14 15 15 15 15 15
-15 15 15 15 15 15 15
+## Left, col 1: pgdn pgup ` prog
+1 1 1 1
 
-## Left thumb
-15 15 15 15
+## col 2: 1 q a z
+1 1 6 1
+
+## col 3: x s w 2
+1 8 4 1
+
+## col 4: 3 e d c
+1 1 2 1
+
+## col 5: c f r 4
+1 1 1 1
+
+## col 6: 5 t g b
+1 1 1 1
+
+## col 7: esc tab led
+1 1 1
+
+## Left thumb: ctrl bksp cmd shift
+1 1 1 1
 
 ## Left pad
-15
+1 # DEBUG 13
 
-## Right main
-15 15 15 15 15 15 15
-15 15 15 15 15 15 15
-   15 15 15 15 15 15
-15 15 15 15 15 15 15
+## Right pad
+1 # DEBUG 14
 
-## Left thumb
-15 15 15 15
+## Right thumb: shift alt space ctrl
+1 1 1 1
 
-## Left pad
-15
+## Right, col 1: any enter butterfly
+1 1 1
 
-# vi: set ft=perl: #
+## col 2: n h y 6
+1 6 1 1
+
+## col 3: 7 u j m
+1 1 8 1
+
+## col 4: , k i 8
+1 4 1 1
+
+## col 5: 9 o l .
+1 1 2 1
+
+## col 6: / ; p 0
+1 1 1 1
+
+## col 7: num = ' -
+1 1 1 1
+

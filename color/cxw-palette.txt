@@ -1,23 +1,23 @@
 palette
 
-  0   0   0 # Black
-255   0   0 # Red
-255 255   0 # Yellow
-  0 255   0 # Green
-  0   0 255 # Blue
-255 255 255 # White
-255 137   0 # Orange
-200 255   0 # Lime-ish
-  0 255 255 # Cyan
-202   0 255 # Purple
+  0   0   0 #  0 Black
+140   0   0 #  1 Dull red (steady-state color)
+255   0   0 #  2 Bright red
+255 137   0 #  3 Orange
+255 255   0 #  4 Yellow
+198 255   0 #  5 Lime-ish
+  0 255   0 #  6 Green
+  0 255 255 #  7 Cyan
+  0   0 255 #  8 Blue
+202   0 255 #  9 Purple
+255 255 255 # 10 White
 
 # Not yet assigned
- 85 255  85 # Bright green
- 85 255 255 # Bright cyan
-255  85  85 # Bright red
-255  85 255 # Bright Magenta
-255 255  85 # yellow
+ 85 255 255 # 11 Bright cyan
+255  85  85 # 12 Bright red
+255  85 255 # 13 Bright Magenta
+255 255  85 # 14 yellow
 
-  0   0   0 # black / transparent
+  0   0   0 # 15 black / transparent
 
 # vi: set ft=perl: #
