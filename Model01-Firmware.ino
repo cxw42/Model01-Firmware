@@ -212,7 +212,7 @@ KEYMAPS(
 
    // Because Esc is too close to "B".  P.S. I'm typing this on
    // my Model01 itself!
-   Key_LeftParen /*Key_Escape, alternatively, M(MACRO_ANY)*/,
+   Key_LeftShift /*Key_Escape, alternatively, M(MACRO_ANY)*/,
 
    Key_LeftControl, Key_Backspace, Key_LeftGui, Key_LeftShift,
    ShiftToLayer(FUNCTION),
@@ -220,7 +220,7 @@ KEYMAPS(
    Key_Escape,    Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
    Key_Enter,     Key_Y, Key_U, Key_I,     Key_O,         Key_P,         Key_Equals,
                   Key_H, Key_J, Key_K,     Key_L,         Key_Semicolon, Key_Quote,
-   Key_RightParen /*Key_RightAlt*/,  Key_N, Key_M, Key_Comma, Key_Period,    Key_Slash,     Key_Minus,
+   Key_Minus /*Key_RightAlt*/,  Key_N, Key_M, Key_Comma, Key_Period,    Key_Slash,     Key_Minus,
    Key_RightShift, Key_LeftAlt, Key_Spacebar, Key_RightControl,
    ShiftToLayer(FUNCTION)),
 
@@ -309,7 +309,7 @@ KEYMAPS(
    Consumer_ScanPreviousTrack, Key_F6,                 Key_F7,                   Key_F8,                   Key_F9,          Key_F10,          Key_F11,
    Consumer_PlaySlashPause,    Consumer_ScanNextTrack, Key_LeftCurlyBracket,     Key_RightCurlyBracket,    Key_LeftBracket, Key_RightBracket, Key_F12,
                                Key_LeftArrow,          Key_DownArrow,            Key_UpArrow,              Key_RightArrow,  ___,              Key_PrintScreen,
-   Key_PcApplication,          Consumer_Mute,          Consumer_VolumeDecrement, Consumer_VolumeIncrement, ___,             Key_Backslash,    Key_Pipe,
+   Key_Pipe /*Key_PcApplication*/,          Consumer_Mute,          Consumer_VolumeDecrement, Consumer_VolumeIncrement, ___,             Key_Backslash,    Key_Pipe,
    ___, ___, Key_Enter, ___,
    ___)
 ) // KEYMAPS(
@@ -348,7 +348,6 @@ static void anyKeyMacro(uint8_t keyState) {
   if (keyIsPressed(keyState))
     Kaleidoscope.hid().keyboard().pressKey(lastKey, toggledOn);
 }
-
 
 /** macroAction dispatches keymap events that are tied to a macro
     to that macro. It takes two uint8_t parameters.
@@ -544,6 +543,9 @@ KALEIDOSCOPE_INIT_PLUGINS(
   NumPad,
 #endif
 
+  // After all the other LED plugins
+  CapsLock,
+
   // The macros plugin adds support for macros
   Macros,
 
@@ -624,6 +626,9 @@ void setup() {
   // for more about setting colormaps.
   ColormapEffect.max_layers(LAYER_SPACE);
   ColormapEffect.activate();
+
+  // Color of alpha keys when caps is active
+  CapsLock.color = CRGB(170, 0, 170);
 }
 
 /** loop is the second of the standard Arduino sketch functions.
