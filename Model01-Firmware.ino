@@ -118,7 +118,8 @@
   */
 
 enum { MACRO_VERSION_INFO,
-       MACRO_ANY
+       MACRO_ANY,
+       MACRO_BACK
      };
 
 
@@ -300,8 +301,8 @@ KEYMAPS(
 
   [FUNCTION] =  KEYMAP_STACKED
   (___,      Key_F1,           Key_F2,            Key_F3,           Key_F4,        Key_F5,  Key_CapsLock,
-   Key_Tab,  Key_mouseWarpNW,  Key_mouseUp,       Key_mouseWarpNE,  Key_mouseBtnR, ___,     ___,
-   Key_Home, Key_mouseL,       Key_mouseWarpEnd,  Key_mouseR,       Key_mouseBtnL, ___,
+   Key_Tab,  Key_mouseWarpNW,  Key_mouseUp,       Key_mouseWarpNE,  Key_mouseBtnR, Consumer_AC_Home,     Consumer_AC_Forward,
+   Key_Home, Key_mouseL,       Key_mouseWarpEnd,  Key_mouseR,       Key_mouseBtnL, M(MACRO_BACK) /*Consumer_AC_Back*/,
    Key_End,  Key_mouseWarpSW,  Key_mouseDn,       Key_mouseWarpSE,  Key_mouseBtnM, ___,     ___,
    ___, Key_Delete, ___, ___,
    ___,
@@ -370,6 +371,14 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
 
   case MACRO_ANY:
     anyKeyMacro(keyState);
+    break;
+
+  case MACRO_BACK:
+    // thanks to SjB, https://github.com/keyboardio/Kaleidoscope/issues/236#issue-271248110
+    if (keyToggledOn(keyState)) {
+      ConsumerControl.write(HID_CONSUMER_AC_BACK);
+      Keyboard.sendReport();
+    }
     break;
   }
   return MACRO_NONE;
