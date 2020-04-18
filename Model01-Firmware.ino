@@ -25,7 +25,7 @@
 //===========================================================================
 
 #ifndef BUILD_INFORMATION
-#define BUILD_INFORMATION "locally built"
+#define BUILD_INFORMATION ("locally built on " __DATE__ " at " __TIME__)
 #endif
 
 /* How many layers we save room for in the EEPROM */
@@ -118,8 +118,7 @@
   */
 
 enum { MACRO_VERSION_INFO,
-       MACRO_ANY,
-       MACRO_BACK
+       MACRO_ANY
      };
 
 
@@ -302,7 +301,7 @@ KEYMAPS(
   [FUNCTION] =  KEYMAP_STACKED
   (___,      Key_F1,           Key_F2,            Key_F3,           Key_F4,        Key_F5,  Key_CapsLock,
    Key_Tab,  Key_mouseWarpNW,  Key_mouseUp,       Key_mouseWarpNE,  Key_mouseBtnR, Consumer_AC_Home,     Consumer_AC_Forward,
-   Key_Home, Key_mouseL,       Key_mouseWarpEnd,  Key_mouseR,       Key_mouseBtnL, M(MACRO_BACK) /*Consumer_AC_Back*/,
+   Key_Home, Key_mouseL,       Key_mouseWarpEnd,  Key_mouseR,       Key_mouseBtnL, Consumer_AC_Back,
    Key_End,  Key_mouseWarpSW,  Key_mouseDn,       Key_mouseWarpSE,  Key_mouseBtnM, ___,     ___,
    ___, Key_Delete, ___, ___,
    ___,
@@ -330,6 +329,7 @@ static void versionInfoMacro(uint8_t keyState) {
   }
 }
 
+#if 0
 /** anyKeyMacro is used to provide the functionality of the 'Any' key.
  *
  * When the 'any key' macro is toggled on, a random alphanumeric key is
@@ -349,6 +349,7 @@ static void anyKeyMacro(uint8_t keyState) {
   if (keyIsPressed(keyState))
     Kaleidoscope.hid().keyboard().pressKey(lastKey, toggledOn);
 }
+#endif
 
 /** macroAction dispatches keymap events that are tied to a macro
     to that macro. It takes two uint8_t parameters.
@@ -369,17 +370,11 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
     versionInfoMacro(keyState);
     break;
 
+#if 0
   case MACRO_ANY:
     anyKeyMacro(keyState);
     break;
-
-  case MACRO_BACK:
-    // thanks to SjB, https://github.com/keyboardio/Kaleidoscope/issues/236#issue-271248110
-    if (keyToggledOn(keyState)) {
-      ConsumerControl.write(HID_CONSUMER_AC_BACK);
-      Keyboard.sendReport();
-    }
-    break;
+#endif
   }
   return MACRO_NONE;
 }
