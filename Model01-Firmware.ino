@@ -62,31 +62,11 @@
 // Support for "Numpad" mode, which is mostly just the Numpad specific LED mode
 #include "Kaleidoscope-NumPad.h"
 
-#if 0
-// Support for the "Boot greeting" effect, which pulses the 'LED' button for 10s
-// when the keyboard is connected to a computer (or that computer is powered on)
-#include "Kaleidoscope-LEDEffect-BootGreeting.h"
-#endif
-
 // Support for LED modes that set all LEDs to a single color
 #include "Kaleidoscope-LEDEffect-SolidColor.h"
 
 // Support for an LED mode that makes all the LEDs 'breathe'
 #include "Kaleidoscope-LEDEffect-Breathe.h"
-
-#if 0
-// Support for an LED mode that makes a red pixel chase a blue pixel across the keyboard
-#include "Kaleidoscope-LEDEffect-Chase.h"
-
-// Support for LED modes that pulse the keyboard's LED in a rainbow pattern
-#include "Kaleidoscope-LEDEffect-Rainbow.h"
-
-// Support for an LED mode that lights up the keys as you press them
-#include "Kaleidoscope-LED-Stalker.h"
-
-// Support for an LED mode that prints the keys you press in letters 4px high
-#include "Kaleidoscope-LED-AlphaSquare.h"
-#endif
 
 // Support for shared palettes for other plugins, like Colormap below
 #include "Kaleidoscope-LED-Palette-Theme.h"
@@ -200,7 +180,7 @@ STATIC_ASSERT(NUM_LAYERS <= LAYER_SPACE, "Increase LAYER_SPACE to save room for 
 // #define PRIMARY_KEYMAP_DVORAK
 // #define PRIMARY_KEYMAP_CUSTOM
 
-// Custom keys - punctuation.  The HID_* values are in 
+// Custom keys - punctuation.  The HID_* values are in
 // Kaleidoscope/src/kaleidoscope/key_defs_keyboard.h .  SHIFT_HELD is in
 // Kaleidoscope/src/kaleidoscope/key_defs.h .
 #define CustomKey_Bang Key(HID_KEYBOARD_1_AND_EXCLAMATION_POINT, SHIFT_HELD)
@@ -363,28 +343,6 @@ static void versionInfoMacro(uint8_t keyState) {
   }
 }
 
-#if 0
-/** anyKeyMacro is used to provide the functionality of the 'Any' key.
- *
- * When the 'any key' macro is toggled on, a random alphanumeric key is
- * selected. While the key is held, the function generates a synthetic
- * keypress event repeating that randomly selected key.
- *
- */
-
-static void anyKeyMacro(uint8_t keyState) {
-  static Key lastKey;
-  bool toggledOn = false;
-  if (keyToggledOn(keyState)) {
-    lastKey.setKeyCode(Key_A.getKeyCode() + (uint8_t)(millis() % 36));
-    toggledOn = true;
-  }
-
-  if (keyIsPressed(keyState))
-    Kaleidoscope.hid().keyboard().pressKey(lastKey, toggledOn);
-}
-#endif
-
 /** macroAction dispatches keymap events that are tied to a macro
     to that macro. It takes two uint8_t parameters.
 
@@ -403,12 +361,6 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   case MACRO_VERSION_INFO:
     versionInfoMacro(keyState);
     break;
-
-#if 0
-  case MACRO_ANY:
-    anyKeyMacro(keyState);
-    break;
-#endif
   }
   return MACRO_NONE;
 }
@@ -501,10 +453,10 @@ USE_MAGIC_COMBOS({.action = toggleKeyboardProtocol,
 // The order can be important. For example, LED effects are
 // added in the order they're listed here.
 KALEIDOSCOPE_INIT_PLUGINS(
-  // List this first per the docs - 
+  // List this first per the docs -
   // https://kaleidoscope.readthedocs.io/en/latest/plugins/Qukeys.html
   Qukeys,
-  
+
   // The EEPROMSettings & EEPROMKeymap plugins make it possible to have an
   // editable keymap in EEPROM.
   EEPROMSettings,
@@ -523,12 +475,6 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // both debugging, and in backing up one's EEPROM contents.
   FocusEEPROMCommand,
 
-#if 0
-  // The boot greeting effect pulses the LED button for 10 seconds after the
-  // keyboard is first connected
-  BootGreetingEffect,
-#endif
-
   // The hardware test mode, which can be invoked by tapping Prog, LED and the
   // left Fn button at the same time.
   HardwareTestMode,
@@ -542,48 +488,12 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // We start with the LED effect that turns off all the LEDs.
   LEDOff,
 
-#if 0
-  // The rainbow effect changes the color of all of the keyboard's keys at the same time
-  // running through all the colors of the rainbow.
-  LEDRainbowEffect,
-
-  // The rainbow wave effect lights up your keyboard with all the colors of a rainbow
-  // and slowly moves the rainbow across your keyboard
-  LEDRainbowWaveEffect,
-
-  // The chase effect follows the adventure of a blue pixel which chases a red pixel across
-  // your keyboard. Spoiler: the blue pixel never catches the red pixel
-  LEDChaseEffect,
-
-  // These static effects turn your keyboard's LEDs a variety of colors
-  solidRed,
-  solidOrange, solidYellow, solidGreen, solidBlue, solidIndigo, solidViolet,
-
-  // The breathe effect slowly pulses all of the LEDs on your keyboard
-  LEDBreatheEffect,
-
-  // The AlphaSquare effect prints each character you type, using your
-  // keyboard's LEDs as a display
-  AlphaSquareEffect,
-
-  // The stalker effect lights up the keys you've pressed recently
-  StalkerEffect,
-#endif
-
   // The LED Palette Theme plugin provides a shared palette for other plugins,
   // like Colormap below
   LEDPaletteTheme,
 
   // The Colormap effect makes it possible to set up per-layer colormaps
   ColormapEffect,
-
-#if 0
-  // Handle this in ColormapEffect instead
-
-  // The numpad plugin is responsible for lighting up the 'numpad' mode
-  // with a custom LED effect
-  NumPad,
-#endif
 
   // After all the other LED plugins
   CapsLock,
@@ -617,38 +527,14 @@ KALEIDOSCOPE_INIT_PLUGINS(
 void setup() {
   // Before K.setup() per the example
   QUKEYS(
-    kaleidoscope::plugin::Qukey(0, KeyAddr(0, 0), ShiftToLayer(FKEYS)), 
+    kaleidoscope::plugin::Qukey(0, KeyAddr(0, 0), ShiftToLayer(FKEYS)),
   );
-  
+
   // First, call Kaleidoscope's internal setup function
   Kaleidoscope.setup();
 
-#if 0
-  // While we hope to improve this in the future, the NumPad plugin
-  // needs to be explicitly told which keymap layer is your numpad layer
-  NumPad.numPadLayer = NUMPAD;
-
-  NumPad.color = CRGB(255,255,255);
-  //NumPad.lock_hue = 85; // green
-
-  // We configure the AlphaSquare effect to use RED letters
-  AlphaSquare.color = CRGB(255, 0, 0);
-
-  // We set the brightness of the rainbow effects to 150 (on a scale of 0-255)
-  // This draws more than 500mA, but looks much nicer than a dimmer effect
-  LEDRainbowEffect.brightness(150);
-  LEDRainbowWaveEffect.brightness(150);
-#endif
-
   // Set the action key the test mode should listen for to Left Fn
   HardwareTestMode.setActionKey(R3C6);
-
-#if 0
-  // The LED Stalker mode has a few effects. The one we like is called
-  // 'BlazingTrail'. For details on other options, see
-  // https://github.com/keyboardio/Kaleidoscope/blob/master/docs/plugins/LED-Stalker.md
-  StalkerEffect.variant = STALKER(BlazingTrail);
-#endif
 
   // We want to make sure that the firmware starts with LED effects off
   // This avoids over-taxing devices that don't have a lot of power to share
