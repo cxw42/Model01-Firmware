@@ -136,22 +136,22 @@ colormap.map
 1 1 1 1
 
 ## col 2: 1 q a z
-1 5 6 7
+3 5 6 7
 
 ## col 3: x s w 2
-8 0 4 1
+8 0 4 3
 
 ## col 4: 3 e d c
-1 3 2 9
+3 3 2 9
 
 ## col 5: v f r 4
-10 6 2 1
+10 6 2 3
 
 ## col 6: 5 t g b
-1 1 1 1
+3 10 6 1
 
 ## col 7: esc tab led
-1 1 1
+1 2 1
 
 ## Left thumb: ctrl bksp cmd shift
 1 2 1 1
@@ -163,28 +163,85 @@ colormap.map
 1 # DEBUG 14
 
 ## Right thumb: shift alt space ctrl
-1 1 2 1
+1 1 1 1
+
+## Right, col 1: any enter butterfly
+1 1 1
+
+## col 2: n h y 6
+1 6 3 3
+
+## col 3: 7 u j m
+3 1 8 1
+
+## col 4: , k i 8
+3 4 1 3
+
+## col 5: 9 o l .
+3 1 2 3
+
+## col 6: / ; p 0
+1 1 1 3
+
+## col 7: num = ' -
+1 1 10 1
+
+#######################################
+# FProg (Qukey Prog held)
+
+## Left, col 1: pgdn pgup ` prog
+1 1 1 1
+
+## col 2: 1 q a z
+3 1 1 1
+
+## col 3: x s w 2
+1 1 2 3    # P+w = Alt+F4
+
+## col 4: 3 e d c
+3 1 1 1
+
+## col 5: v f r 4
+1 1 1 3
+
+## col 6: 5 t g b
+3 1 1 1
+
+## col 7: esc tab led
+1 1 1
+
+## Left thumb: ctrl bksp cmd shift
+1 1 1 1
+
+## Left pad
+1
+
+## Right pad
+1
+
+## Right thumb: shift alt space ctrl
+1 1 1 1
 
 ## Right, col 1: any enter butterfly
 6 10 1
 
 ## col 2: n h y 6
-0 6 2 1
+0 1 2 3
 
 ## col 3: 7 u j m
-1 1 8 8
+3 1 1 8
 
 ## col 4: , k i 8
-4 4 1 1
+4 1 1 3
 
 ## col 5: 9 o l .
-1 1 2 1
+3 1 1 1
 
 ## col 6: / ; p 0
-1 1 1 1
+1 1 1 3
 
 ## col 7: num = ' -
-1 1 10 1
+3 3 1 1
 
 # Copyright (c) 2020 Christopher White (https://github.com/cxw42).
 # Copying and distribution of this file, with or without modification, are
