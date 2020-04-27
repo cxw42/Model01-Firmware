@@ -40,6 +40,9 @@
 // The Kaleidoscope core
 #include "Kaleidoscope.h"
 
+// Make keys dual-function
+#include "Kaleidoscope-Qukeys.h"
+
 // Support for storing the keymap in EEPROM
 #include "Kaleidoscope-EEPROM-Settings.h"
 #include "Kaleidoscope-EEPROM-Keymap.h"
@@ -175,7 +178,7 @@ enum { MACRO_VERSION_INFO,
   *
   */
 
-enum { PRIMARY, NUMPAD, FUNCTION,
+enum { PRIMARY, NUMPAD, FUNCTION, FKEYS,
         NUM_LAYERS }; // layers
 STATIC_ASSERT(NUM_LAYERS <= LAYER_SPACE, "Increase LAYER_SPACE to save room for that many layers");
 
@@ -197,9 +200,20 @@ STATIC_ASSERT(NUM_LAYERS <= LAYER_SPACE, "Increase LAYER_SPACE to save room for 
 // #define PRIMARY_KEYMAP_DVORAK
 // #define PRIMARY_KEYMAP_CUSTOM
 
-// Custom keys - punctuation
+// Custom keys - punctuation.  The HID_* values are in 
+// Kaleidoscope/src/kaleidoscope/key_defs_keyboard.h .  SHIFT_HELD is in
+// Kaleidoscope/src/kaleidoscope/key_defs.h .
 #define CustomKey_Bang Key(HID_KEYBOARD_1_AND_EXCLAMATION_POINT, SHIFT_HELD)
+#define CustomKey_2 Key(HID_KEYBOARD_2_AND_AT, KEY_FLAGS)
+#define CustomKey_3 Key(HID_KEYBOARD_3_AND_POUND, KEY_FLAGS)
+#define CustomKey_4 Key(HID_KEYBOARD_4_AND_DOLLAR, KEY_FLAGS)
+#define CustomKey_5 Key(HID_KEYBOARD_5_AND_PERCENT, KEY_FLAGS)
 #define CustomKey_Caret Key(HID_KEYBOARD_6_AND_CARAT, SHIFT_HELD)
+#define CustomKey_7 Key(HID_KEYBOARD_7_AND_AMPERSAND, KEY_FLAGS)
+#define CustomKey_8 Key(HID_KEYBOARD_8_AND_ASTERISK, KEY_FLAGS)
+#define CustomKey_9 Key(HID_KEYBOARD_9_AND_LEFT_PAREN, KEY_FLAGS)
+#define CustomKey_0 Key(HID_KEYBOARD_0_AND_RIGHT_PAREN, KEY_FLAGS)
+
 
 /* This comment temporarily turns off astyle's indent enforcement
  *   so we can make the keymaps actually resemble the physical key layout better
@@ -313,9 +327,25 @@ KEYMAPS(
    Consumer_ScanPreviousTrack, Key_F6,                 Key_F7,                   Key_F8,                   Key_F9,          Key_F10,          Key_F11,
    Consumer_PlaySlashPause,    Consumer_ScanNextTrack, Key_LeftCurlyBracket,     Key_RightCurlyBracket,    Key_LeftBracket, Key_RightBracket, Key_F12,
                                Key_LeftArrow,          Key_DownArrow,            Key_UpArrow,              Key_RightArrow,  ___,              Key_PrintScreen,
-   Key_Pipe /*Key_PcApplication*/,          Consumer_Mute,          Consumer_VolumeDecrement, Consumer_VolumeIncrement, ___,             Key_Backslash,    Key_Pipe,
+   Key_Pipe,                   Consumer_Mute,          Consumer_VolumeDecrement, Consumer_VolumeIncrement, ___,             Key_Backslash,    Key_Pipe,
    ___, ___, Key_Enter, ___,
+   ___),
+
+  [FKEYS] =  KEYMAP_STACKED
+  (___, ___, ___, ___, ___, ___, ___,
+   ___, ___, ___, ___, ___, ___, ___,
+   ___, ___, ___, ___, ___, ___,
+   ___, ___, ___, ___, ___, ___, ___,
+   ___, ___, ___, ___,
+   ___,
+
+   ___, ___, ___, ___, ___, ___, ___,
+   ___, ___, ___, ___, ___, ___, ___,
+        ___, ___, ___, ___, ___, ___,
+   M(MACRO_VERSION_INFO), ___, ___, ___, ___, ___, ___,
+   ___, ___, ___, ___,
    ___)
+
 ) // KEYMAPS(
 
 /* Re-enable astyle's indent enforcement */
@@ -471,6 +501,10 @@ USE_MAGIC_COMBOS({.action = toggleKeyboardProtocol,
 // The order can be important. For example, LED effects are
 // added in the order they're listed here.
 KALEIDOSCOPE_INIT_PLUGINS(
+  // List this first per the docs - 
+  // https://kaleidoscope.readthedocs.io/en/latest/plugins/Qukeys.html
+  Qukeys,
+  
   // The EEPROMSettings & EEPROMKeymap plugins make it possible to have an
   // editable keymap in EEPROM.
   EEPROMSettings,
@@ -581,6 +615,11 @@ KALEIDOSCOPE_INIT_PLUGINS(
  * Kaleidoscope and any plugins.
  */
 void setup() {
+  // Before K.setup() per the example
+  QUKEYS(
+    kaleidoscope::plugin::Qukey(0, KeyAddr(0, 0), ShiftToLayer(FKEYS)), 
+  );
+  
   // First, call Kaleidoscope's internal setup function
   Kaleidoscope.setup();
 
