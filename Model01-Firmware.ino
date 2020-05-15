@@ -236,8 +236,8 @@ KEYMAPS(
    ___, Key_Delete, ___, ___,
    ___,
 
-   ___,                   CustomKey_Caret, CustomKey_Ampersand,   CustomKey_Asterisk,     CustomKey_LParen, CustomKey_RParen, Key_F11,
-   ___,                   Key_Backslash,   Key_LeftCurlyBracket,  Key_RightCurlyBracket,  Key_LeftBracket,  Key_RightBracket, Key_F12,
+   Consumer_AL_Calculator,CustomKey_Caret, CustomKey_Ampersand,   CustomKey_Asterisk,     CustomKey_LParen, CustomKey_RParen, Key_F11,
+   ___,                   Key_Backslash,   Key_LeftCurlyBracket,  Key_RightCurlyBracket,  Key_LeftBracket,  Key_RightBracket, ___,
    /**/                   Key_LeftArrow,   Key_DownArrow,         Key_UpArrow,            Key_RightArrow,   ___,              ___,
    Key_Pipe,              ___,             ___,                   CustomKey_LAngle,       CustomKey_RAngle, Key_Backslash,    Key_Pipe,
    ___, ___, ___, ___,
