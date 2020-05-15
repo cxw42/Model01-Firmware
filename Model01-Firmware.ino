@@ -232,13 +232,13 @@ KEYMAPS(
   (___,      CustomKey_Bang,   CustomKey_At,      CustomKey_Pound,  CustomKey_Dollar, CustomKey_Percent,  Key_CapsLock,
    Key_Tab,  Key_mouseWarpNW,  Key_mouseUp,       Key_mouseWarpNE,  Key_mouseBtnR,    Consumer_AC_Home,   Consumer_AC_Forward,
    Key_Home, Key_mouseL,       Key_mouseWarpEnd,  Key_mouseR,       Key_mouseBtnL,    Consumer_AC_Back,   /**/
-   Key_End,  Key_mouseWarpSW,  Key_mouseDn,       Key_mouseWarpSE,  Key_mouseBtnM,    ___,                ___,
+   Key_End,  Key_mouseWarpSW,  Key_mouseDn,       Key_mouseWarpSE,  Key_mouseBtnM,    Key_PrintScreen,    ___,
    ___, Key_Delete, ___, ___,
    ___,
 
    ___,                   CustomKey_Caret, CustomKey_Ampersand,   CustomKey_Asterisk,     CustomKey_LParen, CustomKey_RParen, Key_F11,
    ___,                   Key_Backslash,   Key_LeftCurlyBracket,  Key_RightCurlyBracket,  Key_LeftBracket,  Key_RightBracket, Key_F12,
-   /**/                   Key_LeftArrow,   Key_DownArrow,         Key_UpArrow,            Key_RightArrow,   ___,              Key_PrintScreen,
+   /**/                   Key_LeftArrow,   Key_DownArrow,         Key_UpArrow,            Key_RightArrow,   ___,              ___,
    Key_Pipe,              ___,             ___,                   CustomKey_LAngle,       CustomKey_RAngle, Key_Backslash,    Key_Pipe,
    ___, ___, ___, ___,
    ___),
