@@ -126,14 +126,14 @@ colormap.map
 4 10 6 2
 
 ## col 7: num = ' -
-## Highlight Num and Enter
-4 1 1 10
+## Highlight Num, now on '-'
+1 1 1 4
 
 #######################################
 # Function
 
 ## Left, col 1: pgdn pgup ` prog
-1 1 9 1
+1 1 1 1
 
 ## col 2: 1 q a z
 3 5 6 7
@@ -184,7 +184,7 @@ colormap.map
 1 1 1 3
 
 ## col 7: num = ' -
-3 1 1 1
+3 1 1 9
 
 #######################################
 # FProg (Qukey Prog held)
