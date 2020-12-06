@@ -166,6 +166,10 @@ enum {  PRIMARY,  // default
 STATIC_ASSERT(NUM_LAYERS <= LAYER_SPACE, "Increase LAYER_SPACE to save room for that many layers");
 
 #define PRIMARY_KEYMAP_QWERTY
+// #define PRIMARY_KEYMAP_DVORAK
+// #define PRIMARY_KEYMAP_COLEMAK
+// #define PRIMARY_KEYMAP_CUSTOM
+
 
 // Custom keys - punctuation.  The HID_* values are in
 // Kaleidoscope/src/kaleidoscope/key_defs_keyboard.h .  SHIFT_HELD is in
