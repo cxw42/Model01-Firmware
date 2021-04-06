@@ -206,7 +206,7 @@ KEYMAPS(
    Key_PageUp,   Key_A, Key_S, Key_D, Key_F, Key_G,
    Key_PageDown, Key_Z, Key_X, Key_C, Key_V, Key_B, Key_LeftShift,
 
-   Key_LeftControl, Key_Backspace, Key_LeftAlt, Key_LeftShift,
+   Key_LeftControl, Key_Backspace, Key_LeftGui, Key_LeftShift,
    ShiftToLayer(FUNCTION),
 
    // Right hand //
@@ -222,14 +222,14 @@ KEYMAPS(
   (___, ___, ___, ___, ___, ___, ___,
    ___, ___, ___, ___, ___, ___, ___,
    ___, ___, ___, ___, ___, ___, /**/
-   ___, ___, ___, ___, ___, ___, ___,
+   M(MACRO_VERSION_INFO), ___, ___, ___, ___, ___, ___,
    ___, ___, ___, ___,
    ___,
 
    ___,                    CustomKey_Caret, Key_7, Key_8,      Key_9,              Key_KeypadSubtract, ___,
    ___,                    ___,             Key_4, Key_5,      Key_6,              Key_KeypadAdd,      ___,
    /**/                    ___,             Key_1, Key_2,      Key_3,              Key_Equals,         ___,
-   M(MACRO_VERSION_INFO),  ___,             Key_0, Key_Period, Key_KeypadMultiply, Key_KeypadDivide,   ___,
+   ___,                    ___,             Key_0, Key_Period, Key_KeypadMultiply, Key_KeypadDivide,   ___,
    ___, ___, ___, ___,
    ___),
 
