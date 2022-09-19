@@ -129,8 +129,8 @@ colormap.map
 4 10 6 2
 
 ## col 7: num = ' -
-## Highlight Num, now on '-'
-1 1 1 4
+## Highlight Num
+4 1 1 1
 
 # One extra, since we skipped y
 0
