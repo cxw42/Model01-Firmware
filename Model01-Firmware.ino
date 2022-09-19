@@ -237,7 +237,7 @@ KEYMAPS(
   [FUNCTION] =  KEYMAP_STACKED
   (___,                     CustomKey_Bang,   CustomKey_At,      CustomKey_Pound,  CustomKey_Dollar, CustomKey_Percent,  Key_CapsLock,
    ___,                     Key_mouseWarpNW,  Key_mouseUp,       Key_mouseWarpNE,  Key_mouseBtnR,    Consumer_AC_Home,   Consumer_AC_Forward,
-   Key_Home,                Key_mouseL,       Key_mouseWarpEnd,  Key_mouseR,       Key_mouseBtnL,    Consumer_AC_Back,   /**/
+   Key_Home,                Key_mouseL,       Key_mouseWarpEnd,  Key_mouseR,       Key_Tab,          Consumer_AC_Back,   /**/
    Key_End,                 Key_mouseWarpSW,  Key_mouseDn,       Key_mouseWarpSE,  Key_mouseBtnM,    Key_PrintScreen,    ___,
    ___, Key_Delete, ___, ___,
    ___,
@@ -253,7 +253,7 @@ KEYMAPS(
   [FPROG] =  KEYMAP_STACKED
   (___,      Key_F1,                            Key_F2,            Key_F3,           Key_F4,        Key_F5,  ___,
    ___, ___, CustomKey_AltF4 /* P+W = Close */, ___, ___, ___, ___,
-   ___, ___, ___, ___, ___, ___, /**/
+   ___, ___, ___, ___, Key_mouseBtnL, ___, /**/
    ___, ___, ___, ___, ___, ___, ___,
    ___, ___, ___, ___,
    ___,
