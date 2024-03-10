@@ -291,11 +291,11 @@ static void versionInfoMacro(uint8_t keyState) {
 
  */
 
-const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
+const macro_t *macroAction(uint8_t macroIndex, KeyEvent& event) {
   switch (macroIndex) {
 
   case MACRO_VERSION_INFO:
-    versionInfoMacro(keyState);
+    versionInfoMacro(event.state);
     break;
   }
   return MACRO_NONE;
