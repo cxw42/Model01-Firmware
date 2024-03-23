@@ -1,4 +1,3 @@
-// -*- mode: c++ -*-
 // Copyright 2016 Keyboardio, inc. <jesse@keyboard.io>
 // See "LICENSE" for license details
 
@@ -159,6 +158,7 @@ enum {  PRIMARY,  // default
         NUMPAD,   // Num toggle active
         FUNCTION, // Fn held
         FPROG,    // Prog (qukey) held
+        BLENDER,  // Special layer for Blender right-hand shortcuts
         NUM_LAYERS }; // layers
 STATIC_ASSERT(NUM_LAYERS <= LAYER_SPACE, "Increase LAYER_SPACE to save room for that many layers");
 
@@ -194,11 +194,12 @@ STATIC_ASSERT(NUM_LAYERS <= LAYER_SPACE, "Increase LAYER_SPACE to save room for 
  */
 // *INDENT-OFF*
 
+#define TBD ___
 KEYMAPS(
 
   [PRIMARY] = KEYMAP_STACKED
   (Key_Escape,   Key_1, Key_2, Key_3, Key_4, Key_5,
-                                                    Key_Insert, //Key_LEDEffectNext,
+                                                    Key_Insert,
    Key_Backtick, Key_Q, Key_W, Key_E, Key_R, Key_T, Key_Tab,
    Key_PageUp,   Key_A, Key_S, Key_D, Key_F, Key_G,
    Key_PageDown, Key_Z, Key_X, Key_C, Key_V, Key_B, Key_LeftShift,
@@ -235,7 +236,7 @@ KEYMAPS(
   (___,                     CustomKey_Bang,   CustomKey_At,      CustomKey_Pound,  CustomKey_Dollar, CustomKey_Percent,  Key_CapsLock,
    ___,                     Key_mouseWarpNW,  Key_mouseUp,       Key_mouseWarpNE,  Key_mouseBtnR,    Consumer_AC_Home,   Consumer_AC_Forward,
    Key_Home,                Key_mouseL,       Key_mouseWarpEnd,  Key_mouseR,       Key_Tab,          Consumer_AC_Back,   /**/
-   Key_End,                 Key_mouseWarpSW,  Key_mouseDn,       Key_mouseWarpSE,  Key_mouseBtnM,    Key_PrintScreen,    ___,
+   Key_End,                 Key_mouseWarpSW,  Key_mouseDn,       Key_mouseWarpSE,  Key_mouseBtnM,    Key_PrintScreen,    LockLayer(BLENDER),
    ___, Key_Delete, ___, ___,
    ___,
 
@@ -260,9 +261,35 @@ KEYMAPS(
    /**/                        ___,                    Consumer_VolumeDecrement,  Consumer_VolumeIncrement, ___,    ___,      ___,
    M(MACRO_VERSION_INFO),      Consumer_Mute,          ___,                       ___,                      ___,    ___,      ___,
    ___, ___, ___, ___,
-   ___)
+   ___),
+
+  // Blender keys
+  [BLENDER] =  KEYMAP_STACKED
+  ( // Left hand: no changes except that you can just hit the key
+    // marked "Esc" to get out rather than Fn+"Esc".
+   ___,   ___, ___, ___, ___, ___,
+                                                    ___,
+   ___, ___, ___, ___, ___, ___, ___,
+   ___,   ___, ___, ___, ___, ___,
+   ___, ___, ___, ___, ___, ___, UnlockLayer(BLENDER),
+
+   ___, ___, ___, ___,
+   ___,
+
+   // Right hand.
+   // Col 1         2      3      4     5    6      7
+   Key_Tab,       Key_1, Key_2, Key_3, TBD, Key_0, TBD,
+   Key_Enter,     Key_X, Key_Y, Key_Z, TBD, TBD,   TBD,
+                  Key_G, Key_S, Key_R, TBD, TBD,   TBD,
+   TBD,           Key_A, TBD,   TBD,   TBD, TBD,   TBD,
+
+   Key_RightShift, Key_RightAlt, Key_Spacebar, Key_RightControl,
+   ShiftToLayer(FUNCTION)
+  ),
+
 
 ) // KEYMAPS(
+#undef TBD
 
 /* Re-enable astyle's indent enforcement */
 // *INDENT-ON*
