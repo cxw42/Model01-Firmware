@@ -101,10 +101,10 @@ colormap.map
 1 1 1 1
 
 ## Left pad
-1 # DEBUG 11
+1
 
 ## Right pad
-1 # DEBUG 12
+1
 
 ## Right thumb: shift alt space ctrl
 1 1 1 1
@@ -126,7 +126,7 @@ colormap.map
 
 ## col 6: / ; p 0
 ## Highlight = (white) / + (green) / - (red)
-4 10 6 2
+4 15 6 2
 
 ## col 7: num = ' -
 ## Highlight Num
@@ -136,7 +136,7 @@ colormap.map
 0
 
 #######################################
-# Function
+# Function (Fn held)
 
 ## Left, col 1: pgdn pgup ` prog
 1 1 1 1
@@ -151,22 +151,23 @@ colormap.map
 3 3 2 9
 
 ## col 5: v f r 4
-10 11 2 3
+15 12 2 3
 
 ## col 6: 5 t g b
-3 10 6 4
+3 15 6 4
 
 ## col 7: esc tab led
-1 2 1
+# 13 = shift to the Blender layer, so make it stand out
+13 2 1
 
 ## Left thumb: ctrl bksp cmd shift
 1 2 1 1
 
 ## Left pad
-1 # DEBUG 13
+1
 
 ## Right pad
-1 # DEBUG 14
+1
 
 ## Right thumb: shift alt space ctrl
 1 1 1 1
@@ -217,7 +218,7 @@ colormap.map
 3 1 1 1
 
 ## col 7: esc tab led
-1 1 1
+13 1 1
 
 ## Left thumb: ctrl bksp cmd shift
 1 1 1 1
@@ -232,7 +233,7 @@ colormap.map
 1 1 1 1
 
 ## Right, col 1: any enter butterfly
-6 10 1
+6 15 1
 
 ## col 2: n h SKIP-y 6
 0 1 3
@@ -241,7 +242,7 @@ colormap.map
 3 1 8 1
 
 ## col 4: , k i 8
-1 4 1 3
+1 2 8 3
 
 ## col 5: 9 o l .
 3 1 1 1

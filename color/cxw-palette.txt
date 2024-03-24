@@ -12,13 +12,12 @@ palette
   0   0 255 #  8 Blue (S)
 202   0 255 #  9 Purple (SE)
 
-255 255 255 # 10 White
+128 128 128 # 10 Darker gray
+211 211 211 # 11 Lighter gray
 
-# I am not yet specifically using these
- 85 255 255 # 11 Bright cyan
-255  85  85 # 12 Bright red
-255  85 255 # 13 Bright Magenta
-255 255  85 # 14 yellow
-  0   0   0 # 15 black / transparent
+ 85 255 255 # 12 Light cyan
+255  85 255 # 13 Light magenta
+255 255  85 # 14 Light yellow --- not yet in use
+255 255 255 # 15 White
 
 # vi: set ft=perl: #
