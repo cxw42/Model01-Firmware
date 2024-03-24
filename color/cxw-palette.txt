@@ -6,7 +6,7 @@ palette
 255   0   0 #  2 Bright red (E)   # Directions inspired by CIE L*a*b*
 255 137   0 #  3 Orange (NE)
 255 255   0 #  4 Yellow (N)
-198 255   0 #  5 Lime-ish (NW)
+166 255  34 #  5 Lime-ish (NW)
   0 255   0 #  6 Green (W)
   0 255 255 #  7 Cyan (SW)
   0   0 255 #  8 Blue (S)

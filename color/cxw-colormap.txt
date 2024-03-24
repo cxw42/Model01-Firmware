@@ -256,6 +256,69 @@ colormap.map
 # One extra, since we skipped y
 0
 
+#######################################
+# Blender layer
+# Color the right hand according to the functions (sort of).
+# Color keys on the left hand to match those on the right hand, in cases
+# where I am giving the right hand a left-hand key.
+
+## Left, col 1: pgdn pgup ` prog
+1 1 1 1
+
+## col 2: 1 q a z
+10 1 5 8
+
+## col 3: x s w 2
+2 13 1 11
+
+## col 4: 3 e d c
+15 1 1 1
+
+## col 5: v f r 4
+1 1 4 1
+
+## col 6: 5 t g b
+1 1 7 1
+
+## col 7: esc tab led
+13 3 1
+
+## Left thumb: ctrl bksp cmd shift
+1 1 1 1
+
+## Left pad
+1
+
+## Right pad
+1
+
+## Right thumb: shift alt space ctrl
+1 1 1 1
+
+## Right, col 1: any=tab enter butterfly
+3 1 1
+
+## col 2: n=a h=g SKIP-y=x 6=1
+5 7 10
+
+## col 3: 7=2 u=y j=s m
+11 6 13 1
+
+## col 4: , k=r i=z 8=3
+1 4 8 15
+
+## col 5: 9 o l .
+1 1 1 1
+
+## col 6: / ; p 0=0
+1 1 1 15
+
+## col 7: num = ' -
+1 1 1 1
+
+# One extra, since we skipped y
+0
+
 # Copyright (c) 2020 Christopher White (https://github.com/cxw42).
 # Copying and distribution of this file, with or without modification, are
 # permitted in any medium without royalty provided the copyright notice and
