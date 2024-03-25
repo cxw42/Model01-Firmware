@@ -281,7 +281,7 @@ KEYMAPS(
    Key_Tab,       Key_1, Key_2, Key_3,   Key_Keypad7, Key_Keypad8, Key_Keypad9,
    Key_Enter,     Key_X, Key_Y, Key_Z,   Key_Keypad4, Key_Keypad5, Key_Keypad6,
                   Key_G, Key_S, Key_R,   Key_Keypad1, Key_Keypad2, Key_Keypad3,
-   Key_A,         Key_N, Key_M, TBD,     Key_Keypad0, Key_KeypadAdd, Key_KeypadSubtract,
+   Key_A,         Key_N, Key_M, Key_B,   Key_Keypad0, Key_KeypadAdd, Key_KeypadSubtract,
 
    Key_RightShift, Key_RightAlt, Key_Spacebar, Key_RightControl,
    ShiftToLayer(FUNCTION)

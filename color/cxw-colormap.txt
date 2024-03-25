@@ -278,7 +278,7 @@ colormap.map
 1 1 4 1
 
 ## col 6: 5 t g b
-1 1 7 1
+1 1 7 2
 
 ## col 7: esc tab led
 13 3 1
@@ -304,8 +304,8 @@ colormap.map
 ## col 3: 7=2 u=y j=s m
 11 6 13 1
 
-## col 4: , k=r i=z 8=3
-1 4 8 15
+## col 4: ,=b k=r i=z 8=3
+2 4 8 15
 
 ## Numpad below here
 
