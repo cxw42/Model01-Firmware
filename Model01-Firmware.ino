@@ -256,10 +256,10 @@ KEYMAPS(
    ___, ___, ___, ___,
    ___,
 
-   Consumer_ScanPreviousTrack, Key_F6,                 Key_F7,                    Key_F8,                   Key_F9, Key_F10,  Key_F11,
-   Consumer_PlaySlashPause,    Consumer_ScanNextTrack, ___,                       ___,                      ___,    ___,      Key_F12,
-   /**/                        ___,                    Consumer_VolumeDecrement,  Consumer_VolumeIncrement, ___,    ___,      ___,
-   M(MACRO_VERSION_INFO),      Consumer_Mute,          ___,                       ___,                      ___,    ___,      ___,
+   Consumer_ScanPreviousTrack, Key_F6,                 Key_F7,                    Key_F8,                   Key_F9,           Key_F10,  Key_F11,
+   Consumer_PlaySlashPause,    Consumer_ScanNextTrack, ___,                       ___,                      ___,              ___,      Key_F12,
+   /**/                        Consumer_Mute,          Consumer_VolumeDecrement,  Consumer_VolumeIncrement, ___,              ___,      ___,
+   M(MACRO_VERSION_INFO),      Key_mouseScrollL,       Key_mouseScrollDn,         Key_mouseScrollUp,        Key_mouseScrollR, ___,      ___,
    ___, ___, ___, ___,
    ___),
 
