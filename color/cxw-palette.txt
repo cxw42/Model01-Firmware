@@ -4,7 +4,7 @@ palette
 140   0   0 #  1 Dull red (steady-state color)
 
 255   0   0 #  2 Bright red (E)   # Directions inspired by CIE L*a*b*
-255 137   0 #  3 Orange (NE)
+255 171   0 #  3 Orange (NE)
 255 255   0 #  4 Yellow (N)
 166 255  34 #  5 Lime-ish (NW)
   0 255   0 #  6 Green (W)

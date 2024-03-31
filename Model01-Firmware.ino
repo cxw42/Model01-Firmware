@@ -283,7 +283,7 @@ KEYMAPS(
                   Key_G, Key_S, Key_R, Key_Keypad1, Key_Keypad2,   Key_Keypad3,
    Key_A,         Key_N, Key_M, Key_B, Key_Keypad0, Key_KeypadAdd, Key_KeypadSubtract,
 
-   Key_RightShift, Key_RightAlt, Key_Spacebar, Key_RightControl,
+   Key_RightShift, Key_RightAlt, Key_F, Key_RightControl,
    ShiftToLayer(FUNCTION)
   ),
 
@@ -488,8 +488,10 @@ KALEIDOSCOPE_INIT_PLUGINS(
 void setup() {
   // Before K.setup() per the example
   QUKEYS(
-    // Prog, when held or used in a chord, shifts to the FPROG layer.
-    kaleidoscope::plugin::Qukey(0, KeyAddr(0, 0), ShiftToLayer(FPROG)),
+    // PRIMARY: Prog, when held or used in a chord, shifts to the FPROG layer.
+    kaleidoscope::plugin::Qukey(PRIMARY, KeyAddr(0, 0), ShiftToLayer(FPROG)),
+    // BLENDER: Space, when held, shifts back to PRIMARY, giving access to H.
+    kaleidoscope::plugin::Qukey(BLENDER, KeyAddr(1, 8), ShiftToLayer(PRIMARY)),
   );
 
   // First, call Kaleidoscope's internal setup function
