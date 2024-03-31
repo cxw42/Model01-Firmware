@@ -243,7 +243,7 @@ KEYMAPS(
    ___,                   CustomKey_Caret, CustomKey_Ampersand,   CustomKey_Asterisk,     CustomKey_LParen, CustomKey_RParen, Key_F11,
    ___,                   Key_Backslash,   Key_LeftCurlyBracket,  Key_RightCurlyBracket,  Key_LeftBracket,  Key_RightBracket, ___,
    /**/                   Key_LeftArrow,   Key_DownArrow,         Key_UpArrow,            Key_RightArrow,   ___,              CustomKey_DQuote,
-   Key_Pipe,              ___,             ___,                   CustomKey_LAngle,       CustomKey_RAngle, Key_Backslash,    Consumer_AL_Calculator,
+   Key_Pipe,              Key_E,           ___,                   CustomKey_LAngle,       CustomKey_RAngle, Key_Backslash,    Consumer_AL_Calculator,
    ___, ___, ___, ___,
    ___),
 

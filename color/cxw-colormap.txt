@@ -175,8 +175,8 @@ colormap.map
 ## Right, col 1: any enter butterfly
 1 1 1
 
-## col 2: n h SKIP-y 6
-1 6 3
+## col 2: n=e h SKIP-y 6
+3 6 3
 
 ## col 3: 7 u j m
 3 1 8 1
