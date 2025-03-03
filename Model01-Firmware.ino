@@ -220,14 +220,14 @@ KEYMAPS(
   (___, ___, ___, ___, ___, ___, ___,
    ___, ___, ___, ___, ___, ___, ___,
    ___, ___, ___, ___, ___, ___, /**/
-   M(MACRO_VERSION_INFO), ___, ___, ___, ___, ___, ___,
+   ___, ___, ___, ___, ___, ___, ___,
    ___, ___, ___, ___,
    ___,
 
    ___,                    CustomKey_Caret, Key_7, Key_8,      Key_9,              Key_KeypadSubtract, ___,
    ___,                    ___,             Key_4, Key_5,      Key_6,              Key_KeypadAdd,      ___,
    /**/                    ___,             Key_1, Key_2,      Key_3,              Key_Equals,         ___,
-   ___,                    ___,             Key_0, Key_Period, Key_KeypadMultiply, Key_KeypadDivide,   ___,
+   ___,                    ___, Key_0, Key_Period, Key_KeypadMultiply, Key_KeypadDivide,   Key_Enter,
    ___, ___, ___, ___,
    ___),
 
