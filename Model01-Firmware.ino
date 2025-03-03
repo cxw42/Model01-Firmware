@@ -252,7 +252,7 @@ KEYMAPS(
   (___,      Key_F1,                            Key_F2,            Key_F3,           Key_F4,        Key_F5,  ___,
    ___, ___, CustomKey_AltF4 /* P+W = Close */, ___, ___, ___, ___,
    ___, ___, ___, ___, Key_mouseBtnL, ___, /**/
-   ___, ___, ___, ___, ___, ___, ___,
+   ___, ___, ___, ___, ___, ___, Key_Pause /* FP+Esc = Pause/Break */,
    ___, ___, ___, ___,
    ___,
 
